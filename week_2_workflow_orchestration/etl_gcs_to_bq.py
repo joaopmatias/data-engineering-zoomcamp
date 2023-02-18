@@ -24,7 +24,7 @@ def transform(path: Path) -> pd.DataFrame:
     return df
 
 
-@task()
+@task(log_prints=True)
 def write_bq(df: pd.DataFrame) -> None:
     """Write DataFrame to BiqQuery"""
 
@@ -39,17 +39,19 @@ def write_bq(df: pd.DataFrame) -> None:
     )
 
 
-@flow()
-def etl_gcs_to_bq():
+@flow(name="gcs_to_bq", log_prints=True)
+def etl_gcs_to_bq(
+    color: str,
+    year: int,
+    month: int,
+):
     """Main ETL flow to load data into Big Query"""
-    color = "green"
-    year = 2020
-    month = 1
 
     path = extract_from_gcs(color, year, month)
     df = transform(path)
     write_bq(df)
 
-
-if __name__ == "__main__":
-    etl_gcs_to_bq()
+#
+#  if __name__ == "__main__":
+#      etl_gcs_to_bq()
+#
