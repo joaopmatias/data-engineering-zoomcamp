@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+    - name: staging
+      database: taxi-rides-ny-373121
+      schema: dezoomcamp
+
+      tables:
+        - name: fhv
