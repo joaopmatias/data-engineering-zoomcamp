@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 import pandas as pd
 from prefect import flow, task
@@ -6,7 +7,7 @@ from prefect.filesystems import LocalFileSystem
 from random import randint
 
 
-@task(retries=3, log_prints=True, )
+@task(retries=3, log_prints=True)
 def fetch(dataset_url: str) -> pd.DataFrame:
     """Read taxi data from web into pandas DataFrame"""
     # if randint(0, 1) > 0:
@@ -33,6 +34,7 @@ def clean(df: pd.DataFrame) -> pd.DataFrame:
 def write_local(df: pd.DataFrame, color: str, dataset_file: str) -> Path:
     """Write DataFrame out locally as parquet file"""
     path = Path(f"data/{color}/{dataset_file}.parquet")
+    os.makedirs(path.parent, exist_ok=True)
     df.to_parquet(path, compression="gzip")
     LocalFileSystem(basepath=".").get_directory(path.as_posix(), path.as_posix())
     print(path.resolve())
