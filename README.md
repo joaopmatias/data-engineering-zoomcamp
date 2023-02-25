@@ -107,9 +107,6 @@ Did you take notes? You can share them here.
 
 ### 2022 notes 
 
-<<<<<<< HEAD
-Most of these notes are about Airflow, but you might find them useful.
-=======
 * Batch processing
 * What is Spark
 * Spark Dataframes
@@ -229,7 +226,6 @@ Thanks to the course sponsors for making it possible to create this course
 
 
 Do you want to support our course and our community? Please reach out to [alexey@datatalks.club](alexey@datatalks.club)
->>>>>>> main
 
 * [Notes from Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/2_data_ingestion.md)
 * [Notes from Aaron Wright](https://github.com/ABZ-Aaron/DataEngineerZoomCamp/blob/master/week_2_data_ingestion/README.md)
