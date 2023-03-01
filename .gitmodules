@@ -1,3 +1,6 @@
 [submodule "week_2_workflow_orchestration/prefect-zoomcamp"]
 	path = week_2_workflow_orchestration/prefect-zoomcamp
 	url = https://github.com/discdiver/prefect-zoomcamp
+[submodule "workshops/taxi_rides_ny_duckdb"]
+	path = workshops/taxi_rides_ny_duckdb
+	url = https://github.com/InfuseAI/taxi_rides_ny_duckdb
