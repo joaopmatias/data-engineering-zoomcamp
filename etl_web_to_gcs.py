@@ -33,9 +33,9 @@ def clean(df: pd.DataFrame) -> pd.DataFrame:
 @task(log_prints=True)
 def write_local(df: pd.DataFrame, color: str, dataset_file: str) -> Path:
     """Write DataFrame out locally as parquet file"""
-    path = Path(f"data/{color}/{dataset_file}.parquet")
+    path = Path(f"data/{color}/{dataset_file}.csv.gz")
     os.makedirs(path.parent, exist_ok=True)
-    df.to_parquet(path, compression="gzip")
+    df.to_csv(path, compression="gzip")
     LocalFileSystem(basepath=".").get_directory(path.as_posix(), path.as_posix())
     print(path.resolve())
     return path
